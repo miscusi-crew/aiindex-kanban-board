@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kanban Board</title>
+<link rel="icon" href="icon.svg">
+<link rel="stylesheet" href="base.css">
+<style>
+  main{max-width:64rem}
+  .board{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.75rem;margin-top:.75rem}
+  @media (max-width:42rem){.board{grid-template-columns:1fr}}
+  .col{background:var(--card);border:1px solid var(--line);border-radius:.75rem;padding:.6rem;display:grid;gap:.5rem;align-content:start;min-height:12rem}
+  .col.over{outline:2px dashed var(--accent);outline-offset:-4px}
+  .col h2{margin:0;font-size:1rem;display:flex;justify-content:space-between;align-items:center}
+  .col h2 input{font:inherit;font-weight:700;border:0;background:transparent;padding:.15rem .25rem;width:100%}
+  .count{color:var(--muted);font-size:.85rem;font-weight:500}
+  .card{background:var(--bg);border:1px solid var(--line);border-radius:.5rem;padding:.5rem .6rem;display:grid;gap:.35rem;cursor:grab}
+  .card.dragging{opacity:.4}
+  .card .t{white-space:pre-wrap;word-break:break-word}
+  .card .acts{display:flex;gap:.25rem;justify-content:flex-end}
+  .card .acts button{padding:.1rem .45rem;font-size:.85rem;border-color:transparent;background:transparent;color:var(--muted)}
+  .add{display:flex;gap:.35rem}
+  .add input{flex:1;min-width:0}
+</style>
+</head>
+<body>
+<main>
+  <h1>Kanban Board</h1>
+  <p class="sub">Drag cards between columns, or use the arrows. Click a column name to rename it. Saved in this browser.</p>
+  <div class="board" id="board"></div>
+</main>
+<script src="app.js"></script>
+</body>
+</html>
